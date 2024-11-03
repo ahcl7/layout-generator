@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box with Rectangles</title>
+  <style>
+    /* Container box with max dimensions */
+    .container {
+      position: relative;
+      background-color: #f0f0f0;
+      border: 2px solid #333;
+      overflow: hidden;
+      background-color: yellow;
+    }
+
+    /* Individual rectangles */
+    .rectangle {
+      position: absolute;
+      background-color: #4CAF50;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .video {
+      position: absolute;
+      background-color: red;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="containers"></div>
+
+  <script>
+    const data = [
+{
+        width: 1383,
+        height: 1037,
+        n: 1,
+        rectangles:
+                [
+                        [ 7, 90, 1367, 854 ],
+                ]
+},
+{
+        width: 1383,
+        height: 1037,
+        n: 2,
+        rectangles:
+                [
+                        [ 235, 7, 911, 506.5 ],
+                        [ 235, 521.5, 911, 506.5 ],
+                ]
+},
+{
+        width: 1383,
+        height: 1037,
+        n: 3,
+        rectangles:
+                [
+                        [ 88, 7, 598, 336 ],
+                        [ 694, 7, 598, 336 ],
+                        [ 88, 351, 1204, 677 ],
+                ]
+},
+{
+        width: 1383,
+        height: 1037,
+        n: 4,
+        rectangles:
+                [
+                        [ 13, 7, 446.333, 251 ],
+                        [ 467.333, 7, 446.333, 251 ],
+                        [ 921.667, 7, 446.333, 251 ],
+                        [ 13, 266, 1355, 762 ],
+                ]
+},
+{
+        width: 1383,
+        height: 1037,
+        n: 5,
+        rectangles:
+                [
+                        [ 7, 34, 335.75, 189 ],
+                        [ 350.75, 34, 335.75, 189 ],
+                        [ 694.5, 34, 335.75, 189 ],
+                        [ 1038.25, 34, 335.75, 189 ],
+                        [ 7, 231, 1367, 769 ],
+                ]
+},
+{
+        width: 742,
+        height: 1058,
+        n: 1,
+        rectangles:
+                [
+                        [ 7, 301, 726, 453 ],
+                ]
+},
+{
+        width: 742,
+        height: 1058,
+        n: 2,
+        rectangles:
+                [
+                        [ 7, 70, 726, 453.5 ],
+                        [ 7, 531.5, 726, 453.5 ],
+                ]
+},
+{
+        width: 742,
+        height: 1058,
+        n: 3,
+        rectangles:
+                [
+                        [ 62, 7, 615, 342 ],
+                        [ 62, 357, 615, 342 ],
+                        [ 62, 707, 615, 342 ],
+                ]
+},
+{
+        width: 742,
+        height: 1058,
+        n: 4,
+        rectangles:
+                [
+                        [ 7, 10, 359, 202 ],
+                        [ 374, 10, 359, 202 ],
+                        [ 7, 220, 726, 408.5 ],
+                        [ 7, 636.5, 726, 408.5 ],
+                ]
+},
+{
+        width: 742,
+        height: 1058,
+        n: 5,
+        rectangles:
+                [
+                        [ 7, 44, 236.667, 134 ],
+                        [ 251.667, 44, 236.667, 134 ],
+                        [ 496.333, 44, 236.667, 134 ],
+                        [ 7, 186, 726, 408.5 ],
+                        [ 7, 602.5, 726, 408.5 ],
+                ]
+},
+{
+        width: 1383,
+        height: 468,
+        n: 1,
+        rectangles:
+                [
+                        [ 284, 7, 813, 452 ],
+                ]
+},
+{
+        width: 1383,
+        height: 468,
+        n: 2,
+        rectangles:
+                [
+                        [ 7, 21, 679.5, 424 ],
+                        [ 694.5, 21, 679.5, 424 ],
+                ]
+},
+{
+        width: 1383,
+        height: 468,
+        n: 3,
+        rectangles:
+                [
+                        [ 87, 7, 395, 222 ],
+                        [ 87, 237, 395, 222 ],
+                        [ 490, 7, 804, 452 ],
+                ]
+},
+{
+        width: 1383,
+        height: 468,
+        n: 4,
+        rectangles:
+                [
+                        [ 19, 7, 261, 146 ],
+                        [ 288, 7, 261, 146 ],
+                        [ 19, 161, 530, 298 ],
+                        [ 557, 7, 804, 452 ],
+                ]
+},
+{
+        width: 1383,
+        height: 468,
+        n: 5,
+        rectangles:
+                [
+                        [ 7, 13, 187, 106 ],
+                        [ 202, 13, 187, 106 ],
+                        [ 397, 13, 187, 106 ],
+                        [ 7, 127, 577, 326 ],
+                        [ 592, 13, 782, 440 ],
+                ]
+},
+{
+        width: 742,
+        height: 468,
+        n: 1,
+        rectangles:
+                [
+                        [ 7, 7, 726, 451 ],
+                ]
+},
+{
+        width: 742,
+        height: 468,
+        n: 2,
+        rectangles:
+                [
+                        [ 170, 7, 399, 222 ],
+                        [ 170, 237, 399, 222 ],
+                ]
+},
+{
+        width: 742,
+        height: 468,
+        n: 3,
+        rectangles:
+                [
+                        [ 105, 7, 261, 146 ],
+                        [ 374, 7, 261, 146 ],
+                        [ 105, 161, 530, 298 ],
+                ]
+},
+{
+        width: 742,
+        height: 468,
+        n: 4,
+        rectangles:
+                [
+                        [ 7, 7, 359, 221.5 ],
+                        [ 7, 236.5, 359, 221.5 ],
+                        [ 374, 7, 359, 221.5 ],
+                        [ 374, 236.5, 359, 221.5 ],
+                ]
+},
+{
+        width: 742,
+        height: 468,
+        n: 5,
+        rectangles:
+                [
+                        [ 39, 7, 259, 145.333 ],
+                        [ 39, 160.333, 259, 145.333 ],
+                        [ 39, 313.667, 259, 145.333 ],
+                        [ 306, 7, 395, 222 ],
+                        [ 306, 237, 395, 222 ],
+                ]
+},
+]
+    data.forEach((containerData) => {
+      const container = document.createElement('div')
+      let { width, height, rectangles, n } = containerData
+
+      const title = document.createElement('h1')
+      title.textContent = `${width} x ${height}, n = ${n}`
+      containers.appendChild(title)
+
+
+      container.classList.add("container")
+      container.style.width = width + 'px'
+      container.style.height = height + 'px'
+      rectangles = rectangles.map(rec => ({
+        left: rec[0],
+        top: rec[1],
+        width: rec[2],
+        height: rec[3],
+      }))
+      console.log(rectangles)
+      rectangles.forEach(rect => {
+        const rectangleDiv = document.createElement('div');
+        rectangleDiv.classList.add('rectangle');
+        rectangleDiv.style.top = rect.top + 'px';
+        rectangleDiv.style.left = rect.left + 'px';
+        rectangleDiv.style.width = rect.width + 'px';
+        rectangleDiv.style.height = rect.height + 'px';
+
+        const videoDiv = document.createElement('div')
+
+        const k = Math.min(rect.width / 16, rect.height / 9)
+        const videoWidth = k * 16
+        const videoHeight = k * 9
+        const videoLeft = rect.left + (rect.width - videoWidth) / 2
+        const videoTop = rect.top + (rect.height - videoHeight) / 2 
+        videoDiv.classList.add('video')
+        videoDiv.style.top = videoTop + 'px'
+        videoDiv.style.left = videoLeft + 'px'
+        videoDiv.style.width = videoWidth + 'px'
+        videoDiv.style.height = videoHeight + 'px'
+        container.appendChild(rectangleDiv);
+        container.appendChild(videoDiv)
+      });
+      containers.appendChild(container)
+
+      // Render each rectangle
+
+    })
+
+  </script>
+
+</body>
+
+</html>
